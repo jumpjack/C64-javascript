@@ -26,19 +26,29 @@ Not an emulator, just a collection of links to C64 reasouecea and JSON objects r
       - %x11: BASIC ROM visible at $A000-$BFFF; KERNAL ROM visible at $E000-$FFFF.
       - %0xx: Character ROM visible at $D000-$DFFF. (Except for the value %000, see above.)
       - %1xx: I/O area visible at $D000-$DFFF. (Except for the value %100, see above.)
-   - Bit #3: Datasette output signal level.
-   - Bit #4: Datasette button status; 0 = One or more of PLAY, RECORD, F.FWD or REW pressed; 1 = No button is pressed.
-   - Bit #5: Datasette motor control; 0 = On; 1 = Off.
+
  
   Alternative description:
 
-* Bit 0: LORAM signal.  Selects ROM or RAM at 40960 ($A000).  1=BASIC, 0=RAM
-* Bit 1: HIRAM signal.  Selects ROM or RAM at 57344 ($E000).  1=Kernal, 0=RAM
+* Bit 0: LORAM signal.  Selects ROM or RAM at $A000  (40960).  1=BASIC, 0=RAM
+* Bit 1: HIRAM signal.  Selects ROM or RAM at $E000  (57344).  1=Kernal, 0=RAM
 * Bit 2: CHAREN signal.  Selects character ROM or I/O devices.  1=I/O, 0=ROM
-* Bit 3: Cassette Data Output line.
-* Bit 4: Cassette Switch Sense.  Reads 0 if a button is pressed, 1 if not.
-* Bit 5: Cassette Motor Switch Control.  A 1 turns the motor on, 0 turns it off.
-* Bits 6-7: Not connected--no function presently defined.
+
+
+| Mode |LORAM  (bit 0) |HIRAM (bit 1) | CHAREN  (bit 2) |   $A000-$BFFF | C000-$CFFF | $D000-$DFFF | $E000-$FFFF |
+|------|------|------|--------|---------------|------------|-------------|-------------|
+| 31   |1     |1     | 1      |   BASIC ROM   | RAM        | I/O         | KERNAL ROM  |
+| 30   |0     |1     | 1      |   RAM         | RAM        | I/O         | KERNAL ROM  |
+| 29   |1     |0     | 1      |   BASIC ROM   | RAM        | I/O         | RAM         |
+| 28   |0     |0     | 1      |   RAM         | RAM        | I/O         | RAM         |
+| 27   |1     |1     | 0      |   BASIC ROM   | RAM        | CHAR ROM    | KERNAL ROM  |
+| 26   |0     |1     | 0      |   RAM         | RAM        | CHAR ROM    | KERNAL ROM  |
+| 25   |1     |0     | 0      |   BASIC ROM   | RAM        | CHAR ROM    | RAM         |
+| 24   |0     |0     | 0      |   RAM         | RAM        | CHAR ROM    | RAM         |
+
+
+
+![image](https://github.com/user-attachments/assets/41479431-196b-4358-8824-e354158c6f20)
 
 ## Kernal
 
