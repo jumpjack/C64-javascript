@@ -3,7 +3,7 @@ Not an emulator, just a collection of links to C64 reasouecea and JSON objects r
 
 ## Memory map
 
-![image](https://github.com/user-attachments/assets/c52fad22-e1a4-4449-b584-d0a78106a0fb)
+![image](https://github.com/user-attachments/assets/851b7bc0-f4fa-4812-bb3f-0fe1573948d5)
 
 
 - $0000-$00FF, 0-255: Zero page
