@@ -5,20 +5,18 @@ Not an emulator, just a collection of links to C64 reasouecea and JSON objects r
 
 ![image](https://github.com/user-attachments/assets/851b7bc0-f4fa-4812-bb3f-0fe1573948d5)
 
+| Indirizzo (hex) | Indirizzo (dec) | Dimensione (byte) | Descrizione |
+|-----------------|-----------------|-------------------|-------------|
+| $E000-$FFFF     | 57344-65535     | 8192              | KERNAL (ROM) |
+| $D000-$DFFF     | 53248-57343     | 4096              | Characters definition (ROM) or I/O devices (RAM) |
+| $C000-$CFFF     | 49152-53247     | 4096              | Upper RAM area (free for user use) |
+| $A000-$BFFF     | 40960-49151     | 8192              | BASIC interpreter (ROM) or free space (RAM) |
+| $0800-$9FFF     | 2048-40959      | 38912             | BASIC program (RAM) |
+| $0400-$07FF     | 1024-2047       | 1024              | Text screen conents (RAM) |
+| $0200-$03FF     | 512-767         | 256               | Kernal variables |
+| $0100-$01FF     | 256-511         | 256               | Processor stack |
+| $0000-$00FF     | 0-255           | 256               | Zero page |
 
-- $0000-$00FF, 0-255: Zero page
-- $0100-$01FF, 256-511: Processor stack
-- $0200-$02FF, 512-767: ?
-- $0300-$03FF, 768-1023: ?
-- $0400-$07FF, 1024-2047: Text screen conents (RAM)
-- $0800-$9FFF, 2048-40959: BASIC program (RAM)
-- **$A000-$BFFF**, 40960-49151: BASIC interpreter (ROM) or free space (RAM)
-- $C000-$CFFF, 49152-53247: Upper RAM area (free for user use)
-- **$D000-$DFFF**, 53248-57343: Characters definition (ROM) or I/O devices (RAM)
-- $E000-$FFFF, 57344-65535: KERNAL (ROM)
-  
-
-- [Memory map in a text file](https://github.com/mist64/c64ref/blob/main/src/c64mem/c64mem_jb.txt)
 
 - Memory segments are allocated to ROM or RAM depending on memory location $0001 contents:
    - Bits #0-#2: Configuration for memory areas $A000-$BFFF, $D000-$DFFF and $E000-$FFFF. Values:
